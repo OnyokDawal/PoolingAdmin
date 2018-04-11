@@ -15,12 +15,24 @@
             var emailadd=$scope.emailaddress;
             var password=$scope.password;
 
-            if($scope.emailaddress=='admin' && $scope.password =='admin'){
-                $location.path('/index.html')
+            $scope.checkLogin(emailadd, password);
+            //if($scope.emailaddress=='admin' && $scope.password =='admin'){
+                //$location.path('/index.html')
 
-                console.log(1)
-            }
+            //    console.log(1)
+            //}
         }
+        $scope.checkLogin = function (uname , pass) {
+            var userInfo = { username: uname, password: pass };
+            $http.post('http://13.75.89.123/pooling/api/Auth/login', userInfo).then(
+                function (response) {
+                    console.log(response.data.tokenString);
+                    $location.path('/index.html')
+                }, function (error) {
+                    console.log(error.statusText);
+                })
+        }
+
     });
 });
 
