@@ -135,15 +135,11 @@
                     <div class="panel panel-default">
                         <div class="panel-heading panel">
                             <i class="fa fa-bar-chart-o fa-fw">
-                                <h4>List of Assessment</h4>
+                                <h4>List of Questions</h4>
                             </i>
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <h4>
-                                        <a data-toggle="modal" data-target="#myModalAssessment">
-                                            <i class="fa fa-plus-circle">add new</i>
-                                        </a>
-                                    </h4>
+
                                     <br>
                                 </div>
                             </div>
@@ -193,11 +189,14 @@
                                                         <div>
                                                             <button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-target="#myModalEdit" ng-click="selectUser(result)">Edit</button>
                                                             <button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#myModalDelete" ng-click="selectUser(result)">Delete</button>
-                                                            <button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#myModalView" ng-click="viewUser(result)">Assign</button>
+                                                            <button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#myModalView" ng-click="viewUser(result)">Add</button>
                                                         </div>
                                                     </td>
+
                                                 </tr>
+
                                             </tbody>
+
                                         </table>
                                         <div class="text-center">
                                             <dir-pagination-controls></dir-pagination-controls>
@@ -287,7 +286,7 @@
                                                             <label>
                                                                 <input data-toggle="modal" data-target="#myModalExistingAssessment" type="radio" name="optradio">Create New Questionaire</label>
                                                         </div>
-                                                        <a class="pull-right">Next</a>
+
                                                     </div>
 
                                                 </div>
