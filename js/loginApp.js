@@ -11,7 +11,7 @@ app.controller('loginCtrl', function($scope,$localStorage,$sessionStorage,$http)
     $scope.register = function () {
         var registerAdmin = { username: $scope.registerUsername, email: $scope.registerEmail, password: $scope.registerPassword };
         console.log(registerAdmin);
-        $http.post('http://13.75.89.123/pooling/api/Auth/Registration', registerAdmin).then(
+        $http.post('http://13.75.89.123:8081/pooling/api/Auth/Registration', registerAdmin).then(
             function (response) {
                 $scope.accountExist = false;
                 $scope.registerUsername = "";
@@ -42,7 +42,7 @@ app.controller('loginCtrl', function($scope,$localStorage,$sessionStorage,$http)
                 "username": uname,
                 "password": pass
             },
-            url: 'http://13.75.89.123/pooling/api/Auth/login',
+            url: 'http://13.75.89.123:8081/pooling/api/Auth/login',
             headers: {'Content-Type': 'application/json-patch+json','accept': 'application/json' },
         }).then(function (response) {
             $localStorage.tokenString = response.data.tokenString;

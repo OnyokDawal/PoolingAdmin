@@ -3,7 +3,7 @@ app.controller('employeeCtrl', function ($scope, $http, $localStorage,
     $sessionStorage) {
     let headers = { 'accept': 'application/json', 'Authorization': 'Bearer ' + $localStorage.tokenString };
     let download = { 'accept': 'application/json', 'Authorization': 'Bearer' + $localStorage.tokenString }
-    let URL = 'http://13.75.89.123/pooling/api/User';
+    let URL = 'http://13.75.89.123:8081/pooling/api/User';
     $scope.signOut = function () {
         $localStorage.username = "";
         $localStorage.password = "";
@@ -97,7 +97,7 @@ app.controller('employeeCtrl', function ($scope, $http, $localStorage,
         // }
         $scope.tempUrl = function (data, filename2) {
             // let download = {'Content-Type': 'text/plain;charset=utf-8','accept': 'application/json','Authorization': 'Bearer' + tokenString};
-            let URL = 'http://13.75.89.123/pooling/api/User';
+            let URL = 'http://13.75.89.123:8081/pooling/api/User';
 
             $http({
                 method: 'GET',
@@ -126,42 +126,6 @@ app.controller('employeeCtrl', function ($scope, $http, $localStorage,
                     linkElement.dispatchEvent(clickEvent);
                 } catch (ex) {
                     console.log(ex);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
             });
 
@@ -215,6 +179,7 @@ app.controller('employeeCtrl', function ($scope, $http, $localStorage,
             $scope.viewPhone = data.phone;
             $scope.viewAddress = data.address;
             $scope.viewStatus = data.status;
+            $scope.viewSubmitDate= data.submittedDate;
             $scope.viewRecords = data.userSkills;
         };
 
@@ -233,7 +198,7 @@ app.controller('employeeCtrl', function ($scope, $http, $localStorage,
 
         $http({
             method: 'DELETE',
-            url: 'http://13.75.89.123/pooling/api/User/' + $scope.editID,
+            url: 'http://13.75.89.123:8081/pooling/api/User/' + $scope.editID,
             headers: headers
         }).then(function (response) {
             $scope.deleteEmployee();
